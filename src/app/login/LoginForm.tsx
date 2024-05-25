@@ -1,6 +1,8 @@
 "use client";
 
 import { ButtonFlat } from "@/components";
+import { Routes } from "@/constants";
+import Link from "next/link";
 import { useState } from "react";
 
 const LoginForm = () => {
@@ -25,10 +27,12 @@ const LoginForm = () => {
         value={name}
       />
 
-      <ButtonFlat
-        text={!name.length ? "Let's add your name first" : "Start Quiz"}
-        disabled={!name.length}
-      />
+      <Link href={Routes.QUIZ}>
+        <ButtonFlat
+          text={!name.length ? "Let's add your name first" : "Start Quiz"}
+          disabled={!name.length}
+        />
+      </Link>
     </form>
   );
 };
