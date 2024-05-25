@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [name, setName] = useState("");
 
   return (
-    <form className="flex flex-col items-center justify-center flex-auto p-6 bg-mango-950">
+    <form className="flex flex-col items-center justify-center flex-auto p-6">
       <h1 className="text-xl font-bold text-center text-mango-50">Welcome!</h1>
 
       <p className="text-sm text-center text-mango-50">
