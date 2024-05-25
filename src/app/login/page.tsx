@@ -1,3 +1,5 @@
+import { ButtonFlat, ButtonOutline } from "@/components";
+
 const Login = () => {
   return (
     <div className="flex font-sans">
@@ -9,76 +11,12 @@ const Login = () => {
           loading="lazy"
         />
       </div>
-      <form className="flex-auto p-6">
-        <div className="flex flex-wrap">
-          <h1 className="flex-auto text-lg font-semibold text-slate-900">
-            Utility Jacket
-          </h1>
-          <div className="text-lg font-semibold text-slate-500">$110.00</div>
-          <div className="flex-none w-full mt-2 text-sm font-medium text-slate-700">
-            In stock
-          </div>
-        </div>
-        <div className="flex items-baseline pb-6 mt-4 mb-6 border-b border-slate-200">
-          <div className="flex space-x-2 text-sm">
-            <label>
-              <input
-                className="sr-only peer"
-                name="size"
-                type="radio"
-                value="xs"
-                checked
-              />
-              <div className="flex items-center justify-center rounded-lg w-9 h-9 text-mango-50 peer-checked:font-semibold peer-checked:bg-mango-700 hover:peer-checked:bg-mango-800 peer-checked:text-white">
-                XS
-              </div>
-            </label>
-            <label>
-              <input
-                className="sr-only peer"
-                name="size"
-                type="radio"
-                value="s"
-              />
-              <div className="flex items-center justify-center rounded-lg w-9 h-9 text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                S
-              </div>
-            </label>
-            <label>
-              <input
-                className="sr-only peer"
-                name="size"
-                type="radio"
-                value="m"
-              />
-              <div className="flex items-center justify-center rounded-lg w-9 h-9 text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                M
-              </div>
-            </label>
-            <label>
-              <input
-                className="sr-only peer"
-                name="size"
-                type="radio"
-                value="l"
-              />
-              <div className="flex items-center justify-center rounded-lg w-9 h-9 text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                L
-              </div>
-            </label>
-            <label>
-              <input
-                className="sr-only peer"
-                name="size"
-                type="radio"
-                value="xl"
-              />
-              <div className="flex items-center justify-center rounded-lg w-9 h-9 text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                XL
-              </div>
-            </label>
-          </div>
-        </div>
+      <form className="justify-center flex-auto p-6 align-center">
+        <ButtonFlat text={"Default"} disabled={true} />
+        <ButtonOutline text={"Active"} disabled={true} />
+
+        <h1 className="font-bold">Welcome!</h1>
+
         <div className="flex mb-6 space-x-4 text-sm font-medium">
           <div className="flex flex-auto space-x-4">
             <button
