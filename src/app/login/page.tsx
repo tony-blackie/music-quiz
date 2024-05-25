@@ -11,11 +11,11 @@ const Login = () => {
           loading="lazy"
         />
       </div>
-      <form className="justify-center flex-auto p-6 align-center">
+      <form className="justify-center flex-auto p-6 bg-slate-950 align-center">
         <ButtonFlat text={"Default"} disabled={true} />
         <ButtonOutline text={"Active"} disabled={true} />
 
-        <h1 className="font-bold">Welcome!</h1>
+        <h1 className="text-xl font-bold text-center">Welcome!</h1>
 
         <div className="flex mb-6 space-x-4 text-sm font-medium">
           <div className="flex flex-auto space-x-4">
