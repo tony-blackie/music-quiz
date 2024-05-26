@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [name, setName] = useState("");
 
   return (
-    <form className="flex flex-col items-center justify-between flex-auto px-12 py-24">
+    <form className="flex flex-col items-center justify-between flex-auto w-full">
       <div>
         <h1 className="py-2 text-xl font-bold text-center text-mango-50">
           Welcome!
@@ -21,7 +21,7 @@ const LoginForm = () => {
       </div>
 
       <input
-        className="w-full py-2 pl-10 text-sm leading-6 text-center rounded-md shadow-sm appearance-none focus:ring-1 focus:ring-mango-400 focus:outline-none text-mango-950 placeholder-mango-700 ring-1 ring-mango-200"
+        className="w-full py-2 text-sm leading-6 text-center rounded-md shadow-sm appearance-none focus:ring-1 focus:ring-mango-400 focus:outline-none text-mango-950 placeholder-mango-700 ring-1 ring-mango-200"
         type="text"
         aria-label="Name"
         placeholder="Type your name here"
@@ -31,7 +31,7 @@ const LoginForm = () => {
         value={name}
       />
 
-      <Link href={Routes.QUIZ}>
+      <Link href={Routes.QUIZ} className="w-full">
         <ButtonFlat text="Start Quiz" disabled={!name.length} />
       </Link>
     </form>
