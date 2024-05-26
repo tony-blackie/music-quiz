@@ -11,11 +11,11 @@ const LoginForm = () => {
   return (
     <form className="flex flex-col items-center justify-between flex-auto px-12 py-24">
       <div>
-        <h1 className="text-xl font-bold text-center text-mango-50">
+        <h1 className="py-2 text-xl font-bold text-center text-mango-50">
           Welcome!
         </h1>
 
-        <p className="text-sm text-center text-mango-50">
+        <p className="py-2 text-sm text-center text-mango-50">
           Please enter the name and let's start our quiz!
         </p>
       </div>
