@@ -1,7 +1,7 @@
 "use client";
 
 import { ButtonFlat } from "@/components";
-import { Routes } from "@/constants";
+import { INITIAL_QUESTION_INDEX, Routes } from "@/constants";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -31,7 +31,10 @@ const LoginForm = () => {
         value={name}
       />
 
-      <Link href={Routes.QUIZ} className="w-full">
+      <Link
+        href={Routes.QUIZ + `/${INITIAL_QUESTION_INDEX}`}
+        className="w-full"
+      >
         <ButtonFlat text="Start Quiz" disabled={!name.length} />
       </Link>
     </form>

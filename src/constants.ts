@@ -4,3 +4,7 @@ export enum Routes {
   QUIZ = "/quiz",
   SCORE = "/score",
 }
+
+export const API_URL = `http://${process.env.API_HOST}:${process.env.API_PORT}`;
+
+export const INITIAL_QUESTION_INDEX = 1;
