@@ -11,13 +11,17 @@ const Quiz = ({ audioUrl }: Props) => {
 
   return (
     <div className="w-full text-mango-50">
-      <h1 className="text-2xl font-bold">Song #{params.questionIndex}</h1>
-      <p>Listen to the audio and guess the song from the list</p>
-      <div className="flex items-center justify-between w-full">
-        <div className="flex items-center justify-center w-40 h-40 bg-gradient-to-r from-mango-200 via-mango-500 to-mango-700">
+      <div>
+        <h1 className="text-2xl font-bold">Song #{params.questionIndex}</h1>
+        <p className="py-2">
+          Listen to the audio and guess the song from the list
+        </p>
+      </div>
+      <div className="flex items-center justify-between w-full px-8 py-4 bg-mango-300 rounded-xl">
+        <div className="flex items-center justify-center w-32 h-32 bg-gradient-to-r from-mango-700 via-mango-500 to-mango-400 rounded-xl">
           <div className="text-4xl font-bold text-mango-50">?</div>
         </div>
-        <audio src={audioUrl} controls />
+        <audio src={audioUrl} controls className="pl-8 grow" />
       </div>
     </div>
   );
