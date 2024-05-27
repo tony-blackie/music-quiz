@@ -1,18 +1,15 @@
 "use client";
 
-import { useParams } from "next/navigation";
-
 type Props = {
   audioUrl: string;
+  questionIndex: number;
 };
 
-const Quiz = ({ audioUrl }: Props) => {
-  const params = useParams();
-
+const Quiz = ({ audioUrl, questionIndex }: Props) => {
   return (
     <div className="w-full text-mango-50">
       <div>
-        <h1 className="text-2xl font-bold">Song #{params.questionIndex}</h1>
+        <h1 className="text-2xl font-bold">Song #{questionIndex}</h1>
         <p className="py-2">
           Listen to the audio and guess the song from the list
         </p>
