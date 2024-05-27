@@ -1,18 +1,14 @@
-"use client";
-
 import { API_URL } from "@/constants";
-import { useParams } from "next/navigation";
+import Quiz from "./Quiz";
 
-const Quiz = () => {
-  const params = useParams();
+const QuizPage = () => {
+  const audioUrl = `${API_URL}/songs/1-1.mp3`;
 
   return (
-    <div>
-      <h1>Song #{params.questionIndex}</h1>
-      <audio src={`${API_URL}/songs/1-1.mp3`} controls />
-      <div>Quiz</div>
+    <div className="flex w-4/5 px-12 py-24 font-sans rounded-2xl h-4/5 bg-mango-950">
+      <Quiz audioUrl={audioUrl} />;
     </div>
   );
 };
 
-export default Quiz;
+export default QuizPage;
