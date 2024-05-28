@@ -1,11 +1,14 @@
 "use client";
 
+import { Song } from "./types";
+
 type Props = {
   audioUrl: string;
   questionIndex: number;
+  answers: Song[];
 };
 
-const Quiz = ({ audioUrl, questionIndex }: Props) => {
+const Quiz = ({ audioUrl, questionIndex, answers }: Props) => {
   return (
     <div className="w-full text-mango-50">
       <div>
@@ -19,6 +22,12 @@ const Quiz = ({ audioUrl, questionIndex }: Props) => {
           <div className="text-4xl font-bold text-mango-50">?</div>
         </div>
         <audio src={audioUrl} controls className="pl-8 grow" />
+      </div>
+
+      <div>
+        {answers.map((answer) => (
+          <div>{answer.name}</div>
+        ))}
       </div>
     </div>
   );
