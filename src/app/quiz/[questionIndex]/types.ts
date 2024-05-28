@@ -7,3 +7,7 @@ export type Song = {
   artistImageUrl: string;
   about: string;
 };
+
+export type UISong = Song & {
+  guessed: boolean;
+};
