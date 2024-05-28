@@ -1,5 +1,6 @@
 "use client";
 
+import Answer from "./Answer";
 import { UISong } from "./types";
 
 type Props = {
@@ -26,7 +27,7 @@ const Quiz = ({ audioUrl, questionIndex, answers }: Props) => {
 
       <div>
         {answers.map((answer, i) => (
-          <div>{`0${i + 1}: ${answer.artist} - ${answer.name}`}</div>
+          <Answer key={answer.id} {...answer} index={i} />
         ))}
       </div>
     </div>
