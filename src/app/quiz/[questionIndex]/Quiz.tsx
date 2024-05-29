@@ -51,7 +51,11 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
       </div>
       <div className="flex items-center justify-between w-full px-8 py-4 bg-mango-300 rounded-xl">
         <div className="flex items-center justify-center w-32 h-32 bg-gradient-to-r from-mango-700 via-mango-500 to-mango-400 rounded-xl">
-          <div className="text-4xl font-bold text-mango-50">?</div>
+          {correctAnswer?.isSelected ? (
+            <img src={correctAnswer.songImageUrl} />
+          ) : (
+            <div className="text-4xl font-bold text-mango-50">?</div>
+          )}
         </div>
         <audio src={correctAnswer?.audioUrl} controls className="pl-8 grow" />
       </div>

@@ -30,16 +30,9 @@ export default async function QuizPage({
     correctAnswerIndex,
   );
 
-  const correctAnswer = preparedAnswers[correctAnswerIndex];
-
   return (
     <div className="flex w-4/5 px-12 py-24 font-sans rounded-2xl bg-mango-950">
-      <Quiz
-        correctAnswer={correctAnswer}
-        questionIndex={questionIndex}
-        answers={preparedAnswers}
-      />
-      ;
+      <Quiz questionIndex={questionIndex} answers={preparedAnswers} />;
     </div>
   );
 }
