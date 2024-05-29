@@ -15,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full overflow-auto">
       <body
-        className={`${inter.className} w-full h-full flex justify-center items-center bg-gradient-to-r from-mango-200 via-mango-500 to-mango-700`}
+        className={`${inter.className} w-full h-full flex justify-center items-center bg-gradient-to-r from-mango-200 via-mango-500 to-mango-700  overflow-auto`}
       >
         {children}
       </body>

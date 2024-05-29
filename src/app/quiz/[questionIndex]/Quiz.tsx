@@ -6,7 +6,7 @@ import { UISong } from "./types";
 import ArtistDetails from "./ArtistDetails";
 import { ButtonFlat } from "@/components";
 import Link from "next/link";
-import { Routes } from "@/constants";
+import { FINAL_QUESTION_NUMBER, Routes } from "@/constants";
 
 type Props = {
   questionIndex: number;
@@ -47,8 +47,16 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
 
   const activeAnswer = answers.find((answer) => answer.isActive);
 
+  const getButtonLink = () => {
+    if (questionIndex !== FINAL_QUESTION_NUMBER) {
+      return Routes.QUIZ + `/${questionIndex + 1}`;
+    }
+
+    return Routes.SCORE;
+  };
+
   return (
-    <div className="w-full h-full bg-mango-950">
+    <div className="w-full h-full overflow-auto bg-mango-950">
       <div className="flex w-full px-12 pt-12 font-sans bg-mango-950">
         <div className="text-mango-50 basis-1/3 shrink">
           <div>
@@ -90,7 +98,7 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
 
       <div className="flex justify-center">
         <div className="w-64 pb-8">
-          <Link href={Routes.QUIZ + `/${questionIndex + 1}`}>
+          <Link href={getButtonLink()}>
             <ButtonFlat
               text="Next Question"
               disabled={!correctAnswer?.isSelected}
