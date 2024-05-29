@@ -49,7 +49,7 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
       <div className="text-mango-50 basis-1/3 shrink">
         <div>
           <h1 className="text-2xl font-bold">Song #{questionIndex}</h1>
-          <p className="py-2">
+          <p className="py-8">
             Listen to the audio and guess the song from the list
           </p>
         </div>
