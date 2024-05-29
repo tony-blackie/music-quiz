@@ -37,13 +37,13 @@ const Answer = ({
     <div
       onClick={() => handleAnswerSelect(index)}
       className={
-        "flex items-center w-full px-4 py-4 my-5 border border-mango-200 rounded-xl" +
+        "flex items-center px-4 py-4 my-5 border border-mango-200 rounded-xl" +
         styles
       }
     >
       <div
         className={
-          "flex items-center justify-center w-6 h-6 border rounded-full border-mango-200 "
+          "flex items-center justify-center w-6 h-6 border rounded-full border-mango-200 shrink-0"
         }
       >
         {icon}
