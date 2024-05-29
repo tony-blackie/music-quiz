@@ -30,11 +30,7 @@ export default async function QuizPage({
     correctAnswerIndex,
   );
 
-  return (
-    <div className="flex w-full px-12 py-24 font-sans rounded-2xl bg-mango-950">
-      <Quiz questionIndex={questionIndex} answers={preparedAnswers} />;
-    </div>
-  );
+  return <Quiz questionIndex={questionIndex} answers={preparedAnswers} />;
 }
 
 const getPreparedAnswers = (question: Song[], correctAnswerIndex: number) =>
