@@ -45,7 +45,6 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
   const activeAnswer = answers.find((answer) => answer.isActive);
 
   return (
-    // <div className="flex flex-row w-full">
     <>
       <div className="text-mango-50 basis-1/3 shrink">
         <div>
@@ -54,8 +53,8 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
             Listen to the audio and guess the song from the list
           </p>
         </div>
-        <div className="flex flex-col items-center justify-between gap-4 px-8 py-4 bg-mango-300 rounded-xl lg:flex-row">
-          <div className="flex items-center justify-center w-32 h-32 bg-gradient-to-r from-mango-700 via-mango-500 to-mango-400 rounded-xl shrink-0">
+        <div className="flex flex-col items-center justify-between gap-4 px-8 py-4 bg-mango-400 rounded-xl lg:flex-row">
+          <div className="flex items-center justify-center w-32 h-32 bg-gradient-to-r from-mango-900 via-mango-700 to-mango-500 rounded-xl shrink-0">
             {correctAnswer?.isSelected ? (
               <img src={correctAnswer.songImageUrl} />
             ) : (
@@ -80,11 +79,10 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
           ))}
         </div>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 pl-8">
         {activeAnswer && <ArtistDetails {...activeAnswer} />}
       </div>
     </>
-    // </div>
   );
 };
 
