@@ -31,10 +31,7 @@ const LoginForm = () => {
         value={name}
       />
 
-      <Link
-        href={Routes.QUIZ + `/${INITIAL_QUESTION_INDEX}`}
-        className="w-full"
-      >
+      <Link href={Routes.QUIZ + `/${INITIAL_QUESTION_INDEX}`} className="w-56">
         <ButtonFlat text="Start Quiz" disabled={!name.length} />
       </Link>
     </form>

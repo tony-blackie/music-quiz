@@ -48,8 +48,8 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
   const activeAnswer = answers.find((answer) => answer.isActive);
 
   return (
-    <div className="w-full rounded-2xl bg-mango-950">
-      <div className="flex w-full px-12 pt-12 font-sans">
+    <div className="w-full h-full bg-mango-950">
+      <div className="flex w-full px-12 pt-12 font-sans bg-mango-950">
         <div className="text-mango-50 basis-1/3 shrink">
           <div>
             <h1 className="text-2xl font-bold">Song #{questionIndex}</h1>
