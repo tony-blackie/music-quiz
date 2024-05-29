@@ -55,7 +55,7 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
           </p>
         </div>
         <div className="flex flex-col items-center justify-between gap-4 px-8 py-4 bg-mango-300 rounded-xl lg:flex-row">
-          <div className="flex items-center justify-center w-32 h-32 bg-gradient-to-r from-mango-700 via-mango-500 to-mango-400 rounded-xl">
+          <div className="flex items-center justify-center w-32 h-32 bg-gradient-to-r from-mango-700 via-mango-500 to-mango-400 rounded-xl shrink-0">
             {correctAnswer?.isSelected ? (
               <img src={correctAnswer.songImageUrl} />
             ) : (
