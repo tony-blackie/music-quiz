@@ -81,7 +81,6 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
         </div>
       </div>
       <div className="flex-1">
-        <div></div>
         {activeAnswer && <ArtistDetails {...activeAnswer} />}
       </div>
     </>
