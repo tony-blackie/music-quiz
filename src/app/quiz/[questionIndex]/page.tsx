@@ -19,25 +19,23 @@ export default async function QuizPage({
   params: { questionIndex: string };
 }) {
   const questionIndex = parseInt(params.questionIndex, 10);
-  const randomSongIndex = getRandomValueFromZeroToNum(SONGS_COUNT_PER_QUESTION);
+  const correctAnswerIndex = getRandomValueFromZeroToNum(
+    SONGS_COUNT_PER_QUESTION,
+  );
 
-  const audioUrl = `${API_URL}/songs/${questionIndex}-${randomSongIndex}.mp3`;
+  const answers = await getQuestion(questionIndex);
 
-  const question = await getQuestion(questionIndex);
-  const preparedAnswers: UISong[] = question.map((answer) => {
-    return {
-      ...answer,
-      audioUrl: `${API_URL}${answer.audioUrl}`,
-      songImageUrl: `${API_URL}${answer.songImageUrl}`,
-      artistImageUrl: `${API_URL}${answer.artistImageUrl}`,
-      guessed: false,
-    };
-  });
+  const preparedAnswers: UISong[] = getPreparedAnswers(
+    answers,
+    correctAnswerIndex,
+  );
+
+  const correctAnswer = preparedAnswers[correctAnswerIndex];
 
   return (
     <div className="flex w-4/5 px-12 py-24 font-sans rounded-2xl bg-mango-950">
       <Quiz
-        audioUrl={audioUrl}
+        correctAnswer={correctAnswer}
         questionIndex={questionIndex}
         answers={preparedAnswers}
       />
@@ -45,3 +43,16 @@ export default async function QuizPage({
     </div>
   );
 }
+
+const getPreparedAnswers = (question: Song[], correctAnswerIndex: number) =>
+  question.map((answer, i) => {
+    return {
+      ...answer,
+      audioUrl: `${API_URL}${answer.audioUrl}`,
+      songImageUrl: `${API_URL}${answer.songImageUrl}`,
+      artistImageUrl: `${API_URL}${answer.artistImageUrl}`,
+      isCorrect: i + 1 === correctAnswerIndex,
+      isSelected: false,
+      isActive: false,
+    };
+  });

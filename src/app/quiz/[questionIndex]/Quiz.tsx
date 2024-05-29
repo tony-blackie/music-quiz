@@ -1,15 +1,46 @@
 "use client";
 
+import { useCallback, useEffect, useState } from "react";
 import Answer from "./Answer";
 import { UISong } from "./types";
 
 type Props = {
-  audioUrl: string;
   questionIndex: number;
   answers: UISong[];
 };
 
-const Quiz = ({ audioUrl, questionIndex, answers }: Props) => {
+const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
+  const [answers, setAnswers] = useState(initialAnswers);
+
+  console.log("answers: ", answers);
+
+  const correctAnswer = answers.find((answer) => answer.isCorrect);
+
+  const handleAnswerSelect = useCallback(
+    (selectedAnswerIndex: number) => {
+      const currentAnswer = answers[selectedAnswerIndex];
+
+      if (currentAnswer.isCorrect && !currentAnswer.isSelected) {
+        // handleSetScore()
+      }
+
+      const isCorrectAnswerSelected = correctAnswer?.isSelected;
+
+      setAnswers(
+        answers.map((answer, i) => {
+          return {
+            ...answer,
+            isSelected:
+              (!isCorrectAnswerSelected && selectedAnswerIndex === i) ||
+              answer.isSelected,
+            isActive: selectedAnswerIndex === i,
+          };
+        }),
+      );
+    },
+    [answers, correctAnswer],
+  );
+
   return (
     <div className="w-full text-mango-50">
       <div>
@@ -22,12 +53,17 @@ const Quiz = ({ audioUrl, questionIndex, answers }: Props) => {
         <div className="flex items-center justify-center w-32 h-32 bg-gradient-to-r from-mango-700 via-mango-500 to-mango-400 rounded-xl">
           <div className="text-4xl font-bold text-mango-50">?</div>
         </div>
-        <audio src={audioUrl} controls className="pl-8 grow" />
+        <audio src={correctAnswer?.audioUrl} controls className="pl-8 grow" />
       </div>
 
       <div>
         {answers.map((answer, i) => (
-          <Answer key={answer.id} {...answer} index={i} />
+          <Answer
+            key={answer.id}
+            {...answer}
+            handleAnswerSelect={handleAnswerSelect}
+            index={i}
+          />
         ))}
       </div>
     </div>

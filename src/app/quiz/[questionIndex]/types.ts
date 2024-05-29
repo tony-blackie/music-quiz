@@ -9,5 +9,7 @@ export type Song = {
 };
 
 export type UISong = Song & {
-  guessed: boolean;
+  isCorrect: boolean;
+  isSelected: boolean;
+  isActive: boolean;
 };
