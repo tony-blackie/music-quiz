@@ -30,7 +30,11 @@ const Header = () => {
 
   console.log("header render");
 
-  return <div>{count}</div>;
+  return (
+    <div className="flex justify-end w-full">
+      <div>Your Score: {count}</div>
+    </div>
+  );
 };
 
 export default Header;
