@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full overflow-auto">
       <body
-        className={`${inter.className} w-full h-full flex flex-col justify-center items-center bg-gradient-to-r from-mango-200 via-mango-500 to-mango-700  overflow-auto`}
+        className={`${inter.className} w-full h-full flex flex-col justify-center items-center bg-gradient-to-r from-mango-200 via-mango-500 to-mango-700  overflow-auto font-serif`}
       >
         {children}
       </body>

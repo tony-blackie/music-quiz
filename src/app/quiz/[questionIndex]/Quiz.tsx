@@ -7,7 +7,7 @@ import ArtistDetails from "./ArtistDetails";
 import { ButtonFlat } from "@/components";
 import Link from "next/link";
 import { FINAL_QUESTION_NUMBER, Routes } from "@/constants";
-// import Header from "@/components/ui-elements/Header/Header";
+import Header from "@/components/ui-elements/Header/Header";
 import QuizSerializer from "@/services/serializer";
 
 type Props = {
@@ -24,12 +24,6 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
 
   const handleAnswerSelect = useCallback(
     (selectedAnswerIndex: number) => {
-      const currentAnswer = answers[selectedAnswerIndex];
-
-      if (currentAnswer.isCorrect && !currentAnswer.isSelected) {
-        // handleSetScore()
-      }
-
       const isCorrectAnswerSelected = correctAnswer?.isSelected;
 
       const newAnswers = answers.map((answer, i) => {
@@ -63,9 +57,9 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <div className="w-full h-full overflow-auto bg-mango-950">
-        <div className="flex w-full px-12 pt-12 font-sans bg-mango-950">
+        <div className="flex w-full px-12 pt-12 bg-mango-950">
           <div className="text-mango-50 basis-1/3 shrink">
             <div>
               <h1 className="text-2xl font-bold">Song #{questionIndex}</h1>
