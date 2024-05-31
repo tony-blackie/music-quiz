@@ -3,16 +3,6 @@ import Quiz from "./Quiz";
 import { getRandomValueFromZeroToNum } from "./utils";
 import { Song, UISong } from "./types";
 
-const getQuestion = async (questionIndex: string | number): Promise<Song[]> => {
-  const res = await fetch(`${API_URL}/question/${questionIndex}`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch the question data");
-  }
-
-  return res.json();
-};
-
 export default async function QuizPage({
   params,
 }: {
@@ -22,6 +12,8 @@ export default async function QuizPage({
   const correctAnswerIndex = getRandomValueFromZeroToNum(
     SONGS_COUNT_PER_QUESTION,
   );
+
+  console.log("QUiz render");
 
   const answers = await getQuestion(questionIndex);
 
@@ -45,3 +37,13 @@ const getPreparedAnswers = (question: Song[], correctAnswerIndex: number) =>
       isActive: false,
     };
   });
+
+const getQuestion = async (questionIndex: string | number): Promise<Song[]> => {
+  const res = await fetch(`${API_URL}/question/${questionIndex}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch the question data");
+  }
+
+  return res.json();
+};

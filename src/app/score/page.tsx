@@ -1,5 +1,7 @@
-const Score = () => {
-  return <div>Score</div>;
+import Score from "./Score";
+
+const ScorePage = () => {
+  return <Score />;
 };
 
-export default Score;
+export default ScorePage;

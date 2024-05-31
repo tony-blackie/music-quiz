@@ -8,7 +8,7 @@ import { ButtonFlat } from "@/components";
 import Link from "next/link";
 import { FINAL_QUESTION_NUMBER, Routes } from "@/constants";
 import Header from "@/components/ui-elements/Header/Header";
-import QuizSerializer from "@/services/serializer";
+import { QuizSerializer } from "@/services/serializer";
 
 type Props = {
   questionIndex: number;

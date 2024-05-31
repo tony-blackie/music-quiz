@@ -7,7 +7,10 @@ export const subscribe = (listener: () => void) => {
 };
 
 export const getSnapshot = () => {
-  return localStorage.getItem("quiz");
+  return JSON.stringify({
+    quiz: localStorage.getItem("quiz"),
+    name: localStorage.getItem("name"),
+  });
 };
 
 export class Storage {
@@ -47,7 +50,12 @@ export class Serializer {
 
       const parsed = JSON.parse(currentStorage);
 
-      this.storage.write(JSON.stringify({ ...parsed, ...data }));
+      const value =
+        typeof data === "object"
+          ? JSON.stringify({ ...parsed, ...data })
+          : data;
+
+      this.storage.write(value);
     } catch (e) {
       console.log("Got an error while reading the storage: ", e);
     }
@@ -62,6 +70,5 @@ export class Serializer {
   }
 }
 
-const QuizSerializer = new Serializer("quiz");
-
-export default QuizSerializer;
+export const QuizSerializer = new Serializer("quiz");
+export const NameSerializer = new Serializer("name");

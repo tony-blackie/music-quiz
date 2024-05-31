@@ -1,0 +1,33 @@
+"use client";
+import { ButtonFlat } from "@/components";
+import { INITIAL_QUESTION_INDEX, Routes } from "@/constants";
+import { QuizSerializer, getSnapshot, subscribe } from "@/services/serializer";
+import Link from "next/link";
+import { getStoreValues } from "../utils/store";
+import { useSyncExternalStore } from "react";
+import PageContainer from "@/components/ui-elements/PageContainer/PageContainer";
+
+const Score = () => {
+  const store = useSyncExternalStore(subscribe, getSnapshot);
+  const { name, count } = getStoreValues(store);
+
+  const handleButtonClick = () => {
+    QuizSerializer.clear();
+  };
+
+  return (
+    <PageContainer>
+      <div className="w-full h-full flex flex-col justify-around bg-mango-950 text-mango-50">
+        <div>
+          <div className="font-bold px-8 uppercase text-center">{name}</div>
+          <div className="text-center">You got {count} out of 12 points!</div>
+        </div>
+        <Link href={Routes.QUIZ + `/${INITIAL_QUESTION_INDEX}`}>
+          <ButtonFlat text="Restart Quiz" onClick={handleButtonClick} />
+        </Link>
+      </div>
+    </PageContainer>
+  );
+};
+
+export default Score;

@@ -1,37 +1,15 @@
 "use client";
-import { UISong } from "@/app/quiz/[questionIndex]/types";
-import { SONGS_COUNT_PER_QUESTION } from "@/constants";
+import { getStoreValues } from "@/app/utils/store";
 import { getSnapshot, subscribe } from "@/services/serializer";
 import { useSyncExternalStore } from "react";
 
 const Header = () => {
-  const data = useSyncExternalStore(subscribe, getSnapshot) || "";
-  let count;
-  try {
-    const parsed = JSON.parse(data) as { [questionNumber: number]: UISong[] };
-    count = Object.values(parsed).reduce((acc, current) => {
-      let selectionCount = 0;
-
-      const isQuestionAnsweredCorrectly = current.some(
-        (answer) => answer.isCorrect && answer.isSelected,
-      );
-
-      current.forEach((answer) => {
-        if (isQuestionAnsweredCorrectly && answer.isSelected) {
-          selectionCount += 1;
-        }
-      });
-
-      return acc + SONGS_COUNT_PER_QUESTION - selectionCount;
-    }, 0);
-  } catch (e) {
-    console.log("there was an error: ", e);
-  }
-
-  console.log("header render");
+  const store = useSyncExternalStore(subscribe, getSnapshot) || "";
+  const { count, name } = getStoreValues(store);
 
   return (
     <div className="flex justify-end w-full px-8 py-6 text-mango-50">
+      <div className="font-bold px-8 uppercase">{name}</div>
       <div>Your Score: {count}</div>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { ButtonFlat } from "@/components";
 import { INITIAL_QUESTION_INDEX, Routes } from "@/constants";
+import { NameSerializer } from "@/services/serializer";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -31,7 +32,17 @@ const LoginForm = () => {
         value={name}
       />
 
-      <Link href={Routes.QUIZ + `/${INITIAL_QUESTION_INDEX}`} className="w-56">
+      <Link
+        href={Routes.QUIZ + `/${INITIAL_QUESTION_INDEX}`}
+        className="w-56"
+        onClick={() => {
+          if (!name) {
+            return;
+          }
+
+          NameSerializer.write(name);
+        }}
+      >
         <ButtonFlat text="Start Quiz" disabled={!name.length} />
       </Link>
     </form>
