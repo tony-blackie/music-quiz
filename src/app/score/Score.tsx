@@ -22,9 +22,14 @@ const Score = () => {
           <div className="font-bold px-8 uppercase text-center">{name}</div>
           <div className="text-center">You got {count} out of 12 points!</div>
         </div>
-        <Link href={Routes.QUIZ + `/${INITIAL_QUESTION_INDEX}`}>
-          <ButtonFlat text="Restart Quiz" onClick={handleButtonClick} />
-        </Link>
+        <div className="w-full flex justify-center">
+          <Link
+            href={Routes.QUIZ + `/${INITIAL_QUESTION_INDEX}`}
+            className="w-44"
+          >
+            <ButtonFlat text="Restart Quiz" onClick={handleButtonClick} />
+          </Link>
+        </div>
       </div>
     </PageContainer>
   );
