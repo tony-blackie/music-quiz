@@ -59,7 +59,7 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
     <>
       <Header />
       <div className="w-full h-full overflow-auto bg-mango-950">
-        <div className="flex w-full px-12 pt-12 bg-mango-950">
+        <div className="flex flex-col w-full px-12 pt-12 bg-mango-950 md:flex-row">
           <div className="text-mango-50 basis-1/3 shrink">
             <div>
               <h1 className="text-2xl font-bold">Song #{questionIndex}</h1>
