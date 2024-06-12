@@ -17,7 +17,7 @@ const LoginForm = () => {
         </h1>
 
         <p className="py-2 text-sm text-center text-mango-50">
-          Please enter the name and let's start our quiz!
+          {`Please enter the name and let's start our quiz!`}
         </p>
       </div>
 
