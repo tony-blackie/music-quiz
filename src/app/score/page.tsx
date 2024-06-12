@@ -1,7 +1,7 @@
-import Score from "./Score";
+import DynamicScore from "./DynamicScore";
 
 const ScorePage = () => {
-  return <Score />;
+  return <DynamicScore />;
 };
 
 export default ScorePage;
