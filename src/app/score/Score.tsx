@@ -1,12 +1,16 @@
 "use client";
 
-import { ButtonFlat } from "@/components";
-import { INITIAL_QUESTION_INDEX, Routes } from "@/constants";
-import { QuizSerializer, getSnapshot, subscribe } from "@/services/serializer";
+import { ButtonFlat } from "../../components";
+import { INITIAL_QUESTION_INDEX, Routes } from "../../constants";
+import {
+  QuizSerializer,
+  getSnapshot,
+  subscribe,
+} from "../../services/serializer";
 import Link from "next/link";
 import { getStoreValues } from "../utils/store";
 import { useSyncExternalStore } from "react";
-import PageContainer from "@/components/ui-elements/PageContainer/PageContainer";
+import PageContainer from "../../components/ui-elements/PageContainer/PageContainer";
 
 const Score = () => {
   const store = useSyncExternalStore(subscribe, getSnapshot);

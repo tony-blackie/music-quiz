@@ -1,4 +1,4 @@
-import { PageContainer } from "@/components";
+import { PageContainer } from "../components";
 import LoginForm from "./LoginForm";
 
 const Login = () => {

@@ -1,4 +1,4 @@
-import { SONGS_COUNT_PER_QUESTION } from "@/constants";
+import { SONGS_COUNT_PER_QUESTION } from "../../constants";
 import { UISong } from "../quiz/[questionIndex]/types";
 
 export const getStoreValues = (stringifiedStore: string) => {

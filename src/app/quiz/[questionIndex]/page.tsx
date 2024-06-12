@@ -1,4 +1,4 @@
-import { API_URL, SONGS_COUNT_PER_QUESTION } from "@/constants";
+import { API_URL, SONGS_COUNT_PER_QUESTION } from "../../../constants";
 import Quiz from "./Quiz";
 import { getRandomValueFromZeroToNum } from "./utils";
 import { Song, UISong } from "./types";

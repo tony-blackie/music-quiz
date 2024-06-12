@@ -4,11 +4,11 @@ import { useCallback, useEffect, useState } from "react";
 import Answer from "./Answer";
 import { UISong } from "./types";
 import ArtistDetails from "./ArtistDetails";
-import { ButtonFlat } from "@/components";
+import { ButtonFlat } from "../../../components";
 import Link from "next/link";
-import { FINAL_QUESTION_NUMBER, Routes } from "@/constants";
-import Header from "@/components/ui-elements/Header/Header";
-import { QuizSerializer } from "@/services/serializer";
+import { FINAL_QUESTION_NUMBER, Routes } from "../../../constants";
+import Header from "../../../components/ui-elements/Header/Header";
+import { QuizSerializer } from "../../../services/serializer";
 
 type Props = {
   questionIndex: number;

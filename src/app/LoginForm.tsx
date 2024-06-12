@@ -1,8 +1,8 @@
 "use client";
 
-import { ButtonFlat } from "@/components";
-import { INITIAL_QUESTION_INDEX, Routes } from "@/constants";
-import { NameSerializer } from "@/services/serializer";
+import { ButtonFlat } from "../components";
+import { INITIAL_QUESTION_INDEX, Routes } from "../constants";
+import { NameSerializer } from "../services/serializer";
 import Link from "next/link";
 import { useState } from "react";
 

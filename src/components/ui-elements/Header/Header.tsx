@@ -1,6 +1,6 @@
 "use client";
-import { getStoreValues } from "@/app/utils/store";
-import { getSnapshot, subscribe } from "@/services/serializer";
+import { getStoreValues } from "../../../app/utils/store";
+import { getSnapshot, subscribe } from "../../../services/serializer";
 import { useSyncExternalStore } from "react";
 
 const Header = () => {
