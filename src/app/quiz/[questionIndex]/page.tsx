@@ -39,11 +39,19 @@ const getPreparedAnswers = (question: Song[], correctAnswerIndex: number) =>
   });
 
 const getQuestion = async (questionIndex: string | number): Promise<Song[]> => {
-  const res = await fetch(`${API_URL}/question/${questionIndex}`);
+  const url = `${API_URL}/question/${questionIndex}`;
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch the question data");
+  try {
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch the question data");
+    }
+
+    return res.json();
+  } catch (e) {
+    console.log("fetch error: ", e);
   }
 
-  return res.json();
+  return [];
 };

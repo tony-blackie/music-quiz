@@ -1,11 +1,11 @@
+import { PageContainer } from "@/components";
 import LoginForm from "./LoginForm";
-import Container from "@/components/ui-elements/Container/Container";
 
 const Login = () => {
   return (
-    <Container>
+    <PageContainer>
       <LoginForm />
-    </Container>
+    </PageContainer>
   );
 };
 
