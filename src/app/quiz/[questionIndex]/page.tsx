@@ -41,6 +41,8 @@ const getPreparedAnswers = (question: Song[], correctAnswerIndex: number) =>
 const getQuestion = async (questionIndex: string | number): Promise<Song[]> => {
   const url = `${API_URL}/question/${questionIndex}`;
 
+  const result = [];
+
   try {
     const res = await fetch(url);
 
@@ -50,8 +52,8 @@ const getQuestion = async (questionIndex: string | number): Promise<Song[]> => {
 
     return res.json();
   } catch (e) {
-    console.log("fetch error: ", e);
+    result.push(e);
   }
 
-  return [];
+  return result as Song[];
 };
