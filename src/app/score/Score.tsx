@@ -1,4 +1,5 @@
 "use client";
+
 import { ButtonFlat } from "@/components";
 import { INITIAL_QUESTION_INDEX, Routes } from "@/constants";
 import { QuizSerializer, getSnapshot, subscribe } from "@/services/serializer";
