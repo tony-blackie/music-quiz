@@ -9,37 +9,20 @@ export default async function QuizPage({
   params: { questionIndex: string };
 }) {
   const questionIndex = parseInt(params.questionIndex, 10);
-  const correctAnswerIndex = getRandomValueFromZeroToNum(
-    SONGS_COUNT_PER_QUESTION,
-  );
 
   console.log("QUiz render");
 
   const answers = await getQuestion(questionIndex);
 
-  const preparedAnswers: UISong[] = getPreparedAnswers(
-    answers,
-    correctAnswerIndex,
-  );
+  console.log("answersssss: ", answers);
 
-  return <Quiz questionIndex={questionIndex} answers={preparedAnswers} />;
+  return <Quiz questionIndex={questionIndex} answers={answers} />;
 }
-
-const getPreparedAnswers = (question: Song[], correctAnswerIndex: number) =>
-  question.map((answer, i) => {
-    return {
-      ...answer,
-      audioUrl: `${API_URL}${answer.audioUrl}`,
-      songImageUrl: `${API_URL}${answer.songImageUrl}`,
-      artistImageUrl: `${API_URL}${answer.artistImageUrl}`,
-      isCorrect: i + 1 === correctAnswerIndex,
-      isSelected: false,
-      isActive: false,
-    };
-  });
 
 const getQuestion = async (questionIndex: string | number): Promise<Song[]> => {
   const url = `${API_URL}/question/${questionIndex}`;
+
+  console.log("url: ", url);
 
   const result = [];
 

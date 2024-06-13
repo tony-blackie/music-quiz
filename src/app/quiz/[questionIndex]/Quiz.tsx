@@ -2,25 +2,42 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Answer from "./Answer";
-import { UISong } from "./types";
+import { Song, UISong } from "./types";
 import ArtistDetails from "./ArtistDetails";
 import { ButtonFlat } from "../../../components";
 import Link from "next/link";
-import { FINAL_QUESTION_NUMBER, Routes } from "../../../constants";
+import {
+  API_URL,
+  FINAL_QUESTION_NUMBER,
+  Routes,
+  SONGS_COUNT_PER_QUESTION,
+} from "../../../constants";
 import Header from "../../../components/ui-elements/Header/Header";
 import { QuizSerializer } from "../../../services/serializer";
+import { getRandomValueFromZeroToNum } from "./utils";
 
 type Props = {
   questionIndex: number;
-  answers: UISong[];
+  answers: Song[];
 };
 
 const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
-  const [answers, setAnswers] = useState(initialAnswers);
+  const correctAnswerIndex = getRandomValueFromZeroToNum(
+    SONGS_COUNT_PER_QUESTION,
+  );
+
+  const preparedAnswers: UISong[] = getPreparedAnswers(
+    initialAnswers,
+    correctAnswerIndex,
+  );
+
+  const [answers, setAnswers] = useState(preparedAnswers);
 
   console.log("answers: ", answers);
 
   const correctAnswer = answers.find((answer) => answer.isCorrect);
+
+  console.log("correctAnswer: ", correctAnswer);
 
   const handleAnswerSelect = useCallback(
     (selectedAnswerIndex: number) => {
@@ -114,3 +131,16 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
 };
 
 export default Quiz;
+
+const getPreparedAnswers = (question: Song[], correctAnswerIndex: number) =>
+  question.map((answer, i) => {
+    return {
+      ...answer,
+      audioUrl: `${API_URL}${answer.audioUrl}`,
+      songImageUrl: `${API_URL}${answer.songImageUrl}`,
+      artistImageUrl: `${API_URL}${answer.artistImageUrl}`,
+      isCorrect: i + 1 === correctAnswerIndex,
+      isSelected: false,
+      isActive: false,
+    };
+  });
