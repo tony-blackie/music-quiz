@@ -53,6 +53,7 @@ const getQuestion = async (questionIndex: string | number): Promise<Song[]> => {
     return res.json();
   } catch (e) {
     result.push(e);
+    console.log("error: ", e);
   }
 
   return result as Song[];
