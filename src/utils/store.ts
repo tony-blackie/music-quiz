@@ -1,5 +1,5 @@
-import { SONGS_COUNT_PER_QUESTION } from "../../constants";
-import { UISong } from "../quiz/[questionIndex]/types";
+import { SONGS_COUNT_PER_QUESTION } from "@/constants";
+import { UISong } from "@/app/quiz/[questionIndex]/types";
 
 export const getStoreValues = (stringifiedStore: string) => {
   const { quiz, name } = JSON.parse(stringifiedStore);
