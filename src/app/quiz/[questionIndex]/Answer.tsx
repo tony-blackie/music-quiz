@@ -1,6 +1,6 @@
 import { UISong } from "./types";
-import Close from "../../images/close";
-import Check from "../../images/check";
+import Close from "@/images/close";
+import Check from "@/images/check";
 
 type Props = UISong & {
   index: number;
