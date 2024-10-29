@@ -1,19 +1,19 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useState } from "react";
 import Answer from "./Answer";
 import { Song, UISong } from "./types";
 import ArtistDetails from "./ArtistDetails";
-import { ButtonFlat } from "../../../components";
+import { ButtonFlat } from "@/components";
 import Link from "next/link";
 import {
   API_URL,
   FINAL_QUESTION_NUMBER,
   Routes,
   SONGS_COUNT_PER_QUESTION,
-} from "../../../constants";
-import Header from "../../../components/ui-elements/Header/Header";
-import { QuizSerializer } from "../../../services/serializer";
+} from "@/constants";
+import Header from "@/components/ui-elements/Header/Header";
+import { QuizSerializer } from "@/services/serializer";
 import { getRandomValueFromZeroToNum } from "./utils";
 
 type Props = {
@@ -33,11 +33,7 @@ const Quiz = ({ questionIndex, answers: initialAnswers }: Props) => {
 
   const [answers, setAnswers] = useState(preparedAnswers);
 
-  console.log("answers: ", answers);
-
   const correctAnswer = answers.find((answer) => answer.isCorrect);
-
-  console.log("correctAnswer: ", correctAnswer);
 
   const handleAnswerSelect = useCallback(
     (selectedAnswerIndex: number) => {

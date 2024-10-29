@@ -1,7 +1,7 @@
-import { API_URL, SONGS_COUNT_PER_QUESTION } from "../../../constants";
+import { API_URL } from "@/constants";
 import Quiz from "./Quiz";
-import { getRandomValueFromZeroToNum } from "./utils";
-import { Song, UISong } from "./types";
+import { Song } from "./types";
+import { Suspense } from "react";
 
 export default async function QuizPage({
   params,
@@ -10,19 +10,17 @@ export default async function QuizPage({
 }) {
   const questionIndex = parseInt(params.questionIndex, 10);
 
-  console.log("QUiz render");
-
   const answers = await getQuestion(questionIndex);
 
-  console.log("answersssss: ", answers);
-
-  return <Quiz questionIndex={questionIndex} answers={answers} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Quiz questionIndex={questionIndex} answers={answers} />
+    </Suspense>
+  );
 }
 
 const getQuestion = async (questionIndex: string | number): Promise<Song[]> => {
   const url = `${API_URL}/question/${questionIndex}`;
-
-  console.log("url: ", url);
 
   const result = [];
 
